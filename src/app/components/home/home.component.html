@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="w-3/4 h-full m-auto">
+  <div
+    class="grid gap-x-4 gap-y-8 sm:gap-y-0 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+  >
+    @if(newsList != null) { @for (item of newsList; track newsList) {
+
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <img
+        class="w-full"
+        src="{{item.thumbnail}}"
+        alt="Sunset in the mountains"
+      />
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{item.title}}</div>
+        <p class="text-gray-700 text-base">
+          {{item.content}}
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+          >#photography</span
+        >
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+          >#travel</span
+        >
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+          >#winter</span
+        >
+      </div>
+    </div>
+
+    } }
+  </div>
+</div>
+<app-footer></app-footer>
