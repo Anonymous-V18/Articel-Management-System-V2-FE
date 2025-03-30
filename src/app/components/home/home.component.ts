@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseResponse } from '../../dtos/response/BaseResponse/base.response';
 import { NewsResponse } from '../../dtos/response/news/news.response';
+import { NewsListResponse } from '../../dtos/response/news/news_list.response';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { NewsService } from './../../services/news.service';
-import { NewsListResponse } from '../../dtos/response/news/news_list.response';
 
 @Component({
   selector: 'app-home',

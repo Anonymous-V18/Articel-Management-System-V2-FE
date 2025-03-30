@@ -1,9 +1,7 @@
 import { Routes } from '@angular/router';
-import { AdminComponent } from './components/admin/admin.component';
-import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './guard/admin.guard';
 import { AuthGuard } from './guard/auth.guard';
-import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
   {
@@ -13,16 +11,20 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'home',
-    component: HomeComponent,
+    loadComponent: () =>
+      import('./components/home/home.component').then((m) => m.HomeComponent),
     canActivate: [AuthGuard],
   },
   {
     path: 'admin',
-    component: AdminComponent,
+    loadComponent: () =>
+      import('./components/admin/admin.component').then(
+        (m) => m.AdminComponent
+      ),
     canActivate: [AdminGuard],
   },
 ];

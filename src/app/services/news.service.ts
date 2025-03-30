@@ -2,9 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseResponse } from '../dtos/response/BaseResponse/base.response';
-import { NewsResponse } from '../dtos/response/news/news.response';
-import { environment } from '../environments/environment';
 import { NewsListResponse } from '../dtos/response/news/news_list.response';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',

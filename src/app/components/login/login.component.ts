@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginDTO } from '../../dtos/request/users/login.dto';
 import { BaseResponse } from '../../dtos/response/BaseResponse/base.response';
-import { RoleResponse } from '../../dtos/response/roles/role.response';
 import { LoginResponse } from '../../dtos/response/users/login.response';
 import { UserDetailsResponse } from '../../dtos/response/users/userDetails.response';
 import { StorageService } from '../../services/storage.service';
@@ -41,17 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.userService.isLoggedIn()) {
-      var roles: RoleResponse[] =
-        this.userService.getUserDetailsFromLocalStorage().roles;
-      if (roles.length > 0 && roles.some((role) => role.code === 'ADMIN')) {
-        this.router.navigate(['/admin']);
-      } else {
-        this.router.navigate(['/home']);
-      }
-    } else {
-      this.storageService.clear();
-    }
+    this.storageService.clear();
   }
 
   onSubmit() {
@@ -68,8 +57,12 @@ export class LoginComponent implements OnInit {
       },
       complete: () => {},
       error: (error: any) => {
-        debugger
-        this.toastrService.error(error.error.message, 'Error', this.toastConfig);
+        debugger;
+        this.toastrService.error(
+          error.error.message,
+          'Error',
+          this.toastConfig
+        );
       },
     });
   }
@@ -95,7 +88,11 @@ export class LoginComponent implements OnInit {
       },
       complete: () => {},
       error: (error: any) => {
-        this.toastrService.error(error.error.message, 'Error', this.toastConfig);
+        this.toastrService.error(
+          error.error.message,
+          'Error',
+          this.toastConfig
+        );
         this.router.navigate(['/login']);
       },
     });

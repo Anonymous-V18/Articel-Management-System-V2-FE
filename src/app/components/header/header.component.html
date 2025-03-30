@@ -13,12 +13,35 @@
     <nav
       class="md:ml-auto flex flex-wrap items-center text-base justify-center"
     >
-      <a routerLink="/home" class="mr-5 hover:text-gray-900">Home</a>
+      <a routerLink="/home" class="mr-5 hover:bg-violet-800 transition ease-linear duration-150 hover:scale-125 px-5 py-1 bg-blue-700 text-white rounded-full">Home</a>
       <a class="mr-5 hover:text-gray-900">About</a>
       <a class="mr-5 hover:text-gray-900">Contact</a>
       <a class="mr-5 hover:text-gray-900">Services</a>
     </nav>
     <!-- Dropdown menu, show/hide based on menu state. -->
+    <div class="menu">
+      <div class="item text-base">
+        <a href="#" class="link">
+          <span> Account Settings </span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+        <div class="submenu">
+          <div class="submenu-item">
+            <a href="#" class="submenu-link"> Profile </a>
+          </div>
+          <div class="submenu-item">
+            <a href="#" class="submenu-link"> Edit </a>
+          </div>
+          <div class="submenu-item">
+            <a href="#" class="submenu-link"> Account Management </a>
+          </div>
+          <div class="submenu-item">
+            <a [routerLink]="['/login']" class="submenu-link"> Logout </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- End dropdown menu -->
   </div>
 </header>
